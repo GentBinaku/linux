@@ -211,3 +211,16 @@ config CLOCKSOURCE_WATCHDOG_MAX_SKEW_US
 
 endmenu
 endif
+
+config RUST_HRTIMER
+	bool "Enable Rust hrtimer API"
+	depends on RUST
+	default y
+	help
+	  This option allows exclusion of the Rust hrtimer API from the build.
+	  This allows testing out changes to the C API without having to update
+	  the Rust abstractions during initial development.
+
+	  Say Y if you wish to build the Rust hrtimer API.
+
+	  Say N if you wish to exclude the Rust hrtimer API from the build.
