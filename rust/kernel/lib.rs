@@ -115,6 +115,7 @@ pub mod opp;
 pub mod page;
 #[cfg(CONFIG_PCI)]
 pub mod pci;
+pub mod phys_addr;
 pub mod pid_namespace;
 pub mod platform;
 pub mod prelude;

@@ -8,10 +8,10 @@
 use core::ops::Deref;
 use core::ptr::NonNull;
 
+use crate::phys_addr::PhysAddr;
 use crate::prelude::*;
 use crate::str::{CStr, CString};
 use crate::types::Opaque;
-use crate::phys_addr::PhysAddr;
 
 pub use super::{
     ResourceSize, //
@@ -133,7 +133,7 @@ impl Resource {
     pub fn start(&self) -> PhysAddr {
         let inner = self.0.get();
         // SAFETY: Safe as per the invariants of `Resource`.
-        unsafe { PhysAddr((*inner).start) }
+        unsafe { PhysAddr::from_raw((*inner).start) }
     }
 
     /// Returns the name of the resource.
